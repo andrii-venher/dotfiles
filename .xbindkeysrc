@@ -1,0 +1,17 @@
+"$HOME/.bin/display"
+Mod4 + F7
+
+"maim -s | xclip -selection clipboard -t image/png"
+Print
+
+"pactl set-sink-volume 0 +10%"
+XF86AudioRaiseVolume
+
+"pactl set-sink-volume 0 -10%"
+XF86AudioLowerVolume
+
+"light -A 10"
+XF86MonBrightnessUp
+
+"light -U 10"
+XF86MonBrightnessDown
