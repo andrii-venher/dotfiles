@@ -1,0 +1,27 @@
+#!/bin/sh
+
+main=$(xrandr | grep primary | egrep "\sconnected" | awk '{print $1}')
+second=$(xrandr | grep -v primary | egrep "\sconnected" | awk '{print $1}')
+
+set_up_displays() {
+    case "$1" in
+        "main") xrandr --output "$main" --mode 1680x1050 --pos 0x0 --output "$second" --off ;;
+        "dual") xrandr --output "$main" --mode 1680x1050 --output "$second" --mode 1920x1080 --rate 75 --above "$main" ;;
+        "second") xrandr --output "$main" --off --output "$second" --mode 1920x1080 --rate 75 ;;
+        *) ;;
+    esac
+}
+
+if [ "$1" == "auto" ]; then
+    if [ -z $second ]; then
+        setup="main"
+    else
+        setup="dual"
+    fi
+elif [ "$1" == "main" ] || [ "$1" == "dual" ] || [ "$1" == "second" ]; then
+    setup=$1
+else
+    setup=$(printf "dual\nmain\nsecond" | dmenu -i -p "Displays")
+fi
+
+set_up_displays "$setup" &> /dev/null
