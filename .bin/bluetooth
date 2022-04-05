@@ -1,0 +1,12 @@
+#!/bin/sh
+
+hd350bt=$(bluetoothctl devices | grep "HD 350BT" | awk '{print $2}')
+
+connect() {
+    for device in "$@"
+    do
+        bluetoothctl connect "$device"
+    done
+}
+
+connect $hd350bt
