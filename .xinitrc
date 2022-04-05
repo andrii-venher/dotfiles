@@ -55,6 +55,9 @@ redshift &
 /usr/bin/pipewire-pulse &
 /usr/bin/pipewire-media-session &
 
+# bluetooth
+$HOME/.bin/bluetooth &
+
 # dwm status bar
 /$HOME/.environment/dwm-bar/dwm_bar.sh &
 
