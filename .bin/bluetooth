@@ -1,12 +1,22 @@
 #!/bin/sh
 
-hd350bt=$(bluetoothctl devices | grep "HD 350BT" | awk '{print $2}')
+hd350bt="HD 350BT"
+budspro="Galaxy Buds Pro"
+
+device_list=$(bluetoothctl paired-devices)
 
 connect() {
-    for device in "$@"
+    for device_name in "$@"
     do
-        bluetoothctl connect "$device"
+        mac=$(echo "$device_list" | grep -i "$device_name" | awk '{print $2}')
+        bluetoothctl connect "$mac"
     done
 }
 
-connect $hd350bt
+if [ $# -gt 0 ];
+then
+    connect $@
+else
+    connect $hd350bt $budspro
+fi
+
