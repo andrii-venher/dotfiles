@@ -58,6 +58,9 @@ redshift &
 # bluetooth
 $HOME/.bin/bluetooth &
 
+# system authentication agent
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 # dwm status bar
 /$HOME/.environment/dwm-bar/dwm_bar.sh &
 
