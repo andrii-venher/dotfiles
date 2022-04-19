@@ -15,3 +15,10 @@ XF86MonBrightnessUp
 
 "light -U 10"
 XF86MonBrightnessDown
+
+"clipmenu -i"
+Mod4 + c
+
+"clipdel -d .*"
+Mod4 + x
+

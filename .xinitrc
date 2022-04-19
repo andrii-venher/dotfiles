@@ -58,6 +58,9 @@ redshift &
 # bluetooth
 $HOME/.bin/bluetooth &
 
+# clipboard manager
+clipmenud &
+
 # system authentication agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
