@@ -61,6 +61,9 @@ $HOME/.bin/bluetooth &
 # clipboard manager
 clipmenud &
 
+# phone connector
+kdeconnect-indicator &
+
 # system authentication agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
