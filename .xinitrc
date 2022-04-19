@@ -61,6 +61,9 @@ $HOME/.bin/bluetooth &
 # system authentication agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
+# autolock
+xautolock -time 10 -locker slock -killtime 10 -killer "systemctl suspend" -detectsleep -corners 0+00 -cornerdelay 3 -cornersize 3 &
+
 # dwm status bar
 /$HOME/.environment/dwm-bar/dwm_bar.sh &
 
