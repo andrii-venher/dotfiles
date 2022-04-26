@@ -50,11 +50,6 @@ nitrogen --restore &
 # night light
 redshift &
 
-# sound
-/usr/bin/pipewire &
-/usr/bin/pipewire-pulse &
-/usr/bin/pipewire-media-session &
-
 # bluetooth
 $HOME/.bin/bluetooth &
 
