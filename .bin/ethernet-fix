@@ -1,0 +1,14 @@
+#!/bin/bash
+
+CONNECTION_NEW="wired"
+
+DEVICE=$(nmcli device status | grep ethernet | grep -v unmanaged | cut -d " " -f 1)
+
+if [ -n "$DEVICE" ]; then
+    CONNECTION_OLD=$(nmcli device status | grep "$DEVICE" | awk '{print $4}')
+    if [ "$CONNECTION_OLD" != "--" ]; then
+        nmcli connection delete $CONNECTION_OLD
+    fi
+    nmcli connection add type ethernet con-name $CONNECTION_NEW ifname $DEVICE
+    nmcli connection up $CONNECTION_NEW
+fi
