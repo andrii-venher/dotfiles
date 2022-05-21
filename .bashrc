@@ -21,3 +21,13 @@ function open() {
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# quit running desktop manager, dwm or gnome
+function qdm() {
+    IS_DWM=$(pgrep -l dwm | grep -w dwm)
+    if [ -z "$IS_DWM" ]; then
+        sudo systemctl stop gdm
+    else
+        killall xinit
+    fi
+}

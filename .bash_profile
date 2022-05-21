@@ -6,4 +6,4 @@
 
 export EDITOR=vim
 
-startx
+~/.bin/dm-select
